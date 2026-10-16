@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>WEP RF — Acomodo a detalle</title>
+  <link rel="icon" href="wep-app-logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wep-acomodo.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="top-bar" role="banner">
+      <div class="top-bar__accent" aria-hidden="true"></div>
+      <div class="top-bar__main">
+        <button type="button" class="top-bar__icon-btn" aria-label="Menú">
+          <img class="top-bar__menu-icon" src="icon-menu.svg" alt="" width="18" height="12">
+        </button>
+        <div class="top-bar__logo-wrap">
+          <img class="top-bar__logo" src="wep-app-logo.svg" alt="WEP" width="64" height="64">
+        </div>
+        <button type="button" class="top-bar__icon-btn" aria-label="Más opciones" tabindex="-1">
+          <img class="top-bar__ellipsis-icon" src="icon-ellipsis-h.svg" alt="" width="18" height="4">
+        </button>
+      </div>
+    </header>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" aria-hidden="true">
+      <div class="toast__inner"><span class="toast__msg" id="toastMsg"></span></div>
+    </div>
+
+    <main class="main">
+      <section class="screen" aria-labelledby="screenTitle">
+        <div class="screen-body">
+          <h1 class="screen-title" id="screenTitle">Acomodo a detalle</h1>
+          <div class="divider" role="presentation"></div>
+
+          <!-- Localidad origen -->
+          <div class="flow-step" id="step-locOrigen" data-step="locOrigen">
+            <div class="flow-step__editor" data-editor>
+              <label class="field-label" for="inputLocOrigen">Localidad origen</label>
+              <div class="scan-field">
+                <input type="text" id="inputLocOrigen" class="scan-field__input" placeholder="Escanear o ingresar" autocomplete="off" enterkeyhint="done">
+              </div>
+              <p class="field-error" id="errLocOrigen" hidden></p>
+            </div>
+            <p class="summary-line flow-step__done" data-done hidden>
+              <span class="summary-line__key">Localidad origen:</span>
+              <span class="summary-line__val" data-summary-text></span>
+            </p>
+          </div>
+
+          <!-- LPN origen -->
+          <div class="flow-step" id="step-lpnOrigen" data-step="lpnOrigen" hidden>
+            <div class="flow-step__editor" data-editor>
+              <label class="field-label" for="inputLpnOrigen">LPN origen</label>
+              <div class="scan-field">
+                <input type="text" id="inputLpnOrigen" class="scan-field__input" placeholder="Escanear o ingresar" autocomplete="off" enterkeyhint="done">
+              </div>
+              <p class="field-error" id="errLpnOrigen" hidden></p>
+            </div>
+            <p class="summary-line flow-step__done" data-done hidden>
+              <span class="summary-line__key">LPN origen:</span>
+              <span class="summary-line__val" data-summary-text></span>
+            </p>
+          </div>
+
+          <!-- SubLPN origen -->
+          <div class="flow-step" id="step-subLpnOrigen" data-step="subLpnOrigen" hidden>
+            <div class="flow-step__editor" data-editor>
+              <p class="suggest-text" id="suggestText">SubLPN sugerida: <span id="suggestValue">—</span></p>
+              <label class="field-label" for="inputSubLpnOrigen">SubLPN origen</label>
+              <div class="scan-field">
+                <input type="text" id="inputSubLpnOrigen" class="scan-field__input" placeholder="Escanear o ingresar" autocomplete="off" enterkeyhint="done">
+              </div>
+              <p class="field-error" id="errSubLpn" hidden></p>
+            </div>
+            <p class="summary-line flow-step__done" data-done hidden>
+              <span class="summary-line__key">SubLPN origen:</span>
+              <span class="summary-line__val" data-summary-text></span>
+            </p>
+          </div>
+
+          <!-- Producto -->
+          <div class="flow-step" id="step-producto" data-step="producto" hidden>
+            <div class="flow-step__editor" data-editor>
+              <label class="field-label" for="inputProducto">Producto</label>
+              <div class="scan-field">
+                <input type="text" id="inputProducto" class="scan-field__input" placeholder="Escanear o ingresar" autocomplete="off" enterkeyhint="done">
+              </div>
+              <p class="field-error" id="errProducto" hidden></p>
+            </div>
+            <p class="summary-line flow-step__done" data-done hidden>
+              <span class="summary-line__key">Producto:</span>
+              <span class="summary-line__val" data-summary-text></span>
+            </p>
+          </div>
+
+          <!-- Cantidad -->
+          <div class="flow-step" id="step-cantidad" data-step="cantidad" hidden>
+            <div class="flow-step__editor" data-editor>
+              <label class="field-label" for="inputCantidad">Cantidad por acomodar</label>
+              <div class="scan-field">
+                <input type="number" id="inputCantidad" class="scan-field__input" inputmode="numeric" min="1" step="1" placeholder="0" autocomplete="off" enterkeyhint="done">
+              </div>
+              <p class="field-error" id="errCantidad" hidden></p>
+            </div>
+            <p class="summary-line flow-step__done" data-done hidden>
+              <span class="summary-line__key">Cantidad:</span>
+              <span class="summary-line__val" data-summary-text></span>
+            </p>
+          </div>
+
+          <!-- Localidad destino -->
+          <div class="flow-step" id="step-locDestino" data-step="locDestino" hidden>
+            <div class="flow-step__editor" data-editor>
+              <label class="field-label" for="inputLocDestino">Localidad destino</label>
+              <div class="scan-field">
+                <input type="text" id="inputLocDestino" class="scan-field__input" placeholder="Escanear o ingresar" autocomplete="off" enterkeyhint="done">
+              </div>
+              <p class="field-error" id="errLocDestino" hidden></p>
+            </div>
+            <p class="summary-line flow-step__done" data-done hidden>
+              <span class="summary-line__key">Localidad destino:</span>
+              <span class="summary-line__val" data-summary-text></span>
+            </p>
+          </div>
+
+          <!-- LPN destino -->
+          <div class="flow-step" id="step-lpnDestino" data-step="lpnDestino" hidden>
+            <div class="flow-step__editor" data-editor>
+              <label class="field-label" for="inputLpnDestino">LPN destino</label>
+              <div class="scan-field">
+                <input type="text" id="inputLpnDestino" class="scan-field__input" placeholder="Existente o nueva LPN" autocomplete="off" enterkeyhint="done">
+              </div>
+              <p class="field-error" id="errLpnDestino" hidden></p>
+            </div>
+            <p class="summary-line flow-step__done" data-done hidden>
+              <span class="summary-line__key">LPN destino:</span>
+              <span class="summary-line__val" data-summary-text></span>
+            </p>
+          </div>
+
+          <p class="esc-hint" id="escHint" hidden>Esc (cambiar paso anterior)</p>
+        </div>
+      </section>
+    </main>
+
+    <div class="app__home-indicator" aria-hidden="true"><span class="app__home-indicator-pill"></span></div>
+    <div class="sr-only" id="srLive" aria-live="assertive"></div>
+  </div>
+
+  <script src="wep-acomodo.js"></script>
+</body>
+</html>

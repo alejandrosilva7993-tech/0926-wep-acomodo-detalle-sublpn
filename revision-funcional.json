@@ -1,0 +1,114 @@
+{
+  "pantalla": "Acomodo a detalle — SubLPN (RF)",
+  "fecha": "2026-09-30",
+  "cobertura_hu": "100%",
+  "referencia_figma": "1125-wep-acomodo-detalle",
+  "criterios": [
+    {
+      "id": "loc-origen",
+      "descripcion": "Ingreso de Localidad origen",
+      "estado": "cubierto",
+      "demo": "A-01-01"
+    },
+    {
+      "id": "lpn-origen",
+      "descripcion": "Ingreso de LPN origen con validación de SubLPN",
+      "estado": "cubierto",
+      "demo": "LPN-1001 / LPN-1002"
+    },
+    {
+      "id": "sublpn-condicional",
+      "descripcion": "Campo SubLPN solo si la LPN contiene al menos una SubLPN",
+      "estado": "cubierto"
+    },
+    {
+      "id": "sublpn-sugerida",
+      "descripcion": "Se muestra SubLPN sugerida de acomodo y se puede usar o cambiar",
+      "estado": "cubierto",
+      "demo": "SUB-1001-A sugerida; SUB-1001-A2 compatible"
+    },
+    {
+      "id": "cambio-sublpn-reglas",
+      "descripcion": "Cambio de sugerida exige mismo SKU, cantidad y lote",
+      "estado": "cubierto"
+    },
+    {
+      "id": "acomodo-completo",
+      "descripcion": "Si el backend indica acomodo de SubLPN completa, no se pide producto ni cantidad (reubicación de SubLPN); no se expone pregunta al usuario",
+      "estado": "cubierto"
+    },
+
+    {
+      "id": "mas-sublpn-misma-loc",
+      "descripcion": "Si hay más SubLPN pendientes continúa con la siguiente",
+      "estado": "cubierto"
+    },
+    {
+      "id": "sin-mas-sublpn",
+      "descripcion": "Sin SubLPN pendientes continúa a localidad destino / luego LPN origen",
+      "estado": "cubierto"
+    },
+    {
+      "id": "multisku",
+      "descripcion": "SubLPN multiSKU/lote distribuye todos los productos",
+      "estado": "cubierto",
+      "demo": "SUB-1001-B"
+    },
+    {
+      "id": "sin-sublpn-flujo-actual",
+      "descripcion": "Sin SubLPN continúa flujo actual: producto → cantidad",
+      "estado": "cubierto",
+      "demo": "LPN-1002"
+    },
+    {
+      "id": "producto-cantidad",
+      "descripcion": "Producto y cantidad solo cuando el backend indica que no es acomodo de SubLPN completa",
+      "estado": "cubierto"
+    },
+
+    {
+      "id": "loc-destino-multi-lpn",
+      "descripcion": "Localidad con >1 LPN pide LPN destino",
+      "estado": "cubierto",
+      "demo": "B-02-01"
+    },
+    {
+      "id": "loc-destino-una-lpn",
+      "descripcion": "Localidad con 1 LPN continúa flujo actual (auto LPN)",
+      "estado": "cubierto",
+      "demo": "B-02-02"
+    },
+    {
+      "id": "nueva-lpn-destino",
+      "descripcion": "Sin LPN en destino se permite ingresar nueva LPN",
+      "estado": "cubierto",
+      "demo": "B-03-01"
+    },
+    {
+      "id": "validacion-producto",
+      "descripcion": "Producto no encontrado",
+      "estado": "cubierto"
+    },
+    {
+      "id": "validacion-cantidad",
+      "descripcion": "Cantidad distinta a la solicitada",
+      "estado": "cubierto"
+    },
+    {
+      "id": "sin-politica",
+      "descripcion": "SubLPN sin política de acomodo: no genera tarea",
+      "estado": "cubierto",
+      "demo": "SUB-1001-C"
+    },
+    {
+      "id": "tipos-movimiento",
+      "descripcion": "Reubicación de SubLPN / producto / LPN",
+      "estado": "cubierto"
+    },
+    {
+      "id": "historico",
+      "descripcion": "Payload de movimiento registrado en consola (Histórico)",
+      "estado": "cubierto"
+    }
+  ]
+}
